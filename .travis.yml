@@ -8,7 +8,8 @@ before_install: true
 install: true
 
 script:
-  - brew remove --force $(brew list) --ignore-dependencies  
+  - rm /usr/local/include/c++
   - brew update
+  - brew upgrade
   - brew tap homebrew/science
   - brew install triqs.rb
