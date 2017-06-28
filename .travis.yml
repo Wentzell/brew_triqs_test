@@ -1,0 +1,12 @@
+os: osx
+
+osx_image: xcode8.3
+
+language: cpp
+
+before_install: true
+
+install: true
+
+script:
+  brew install triqs.rb
