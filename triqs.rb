@@ -22,11 +22,12 @@ class Triqs < Formula
   depends_on "python"
   depends_on "numpy" => :python
   depends_on "scipy" => :python
-  system "pip", "install", "mako"
-  system "pip", "install", "--no-binary=h5py", "h5py"
-  system "pip", "install", "--no-binary=mpi4py", "mpi4py"
 
   def install
+    system "pip", "install", "mako"
+    system "pip", "install", "--no-binary=h5py", "h5py"
+    system "pip", "install", "--no-binary=mpi4py", "mpi4py"
+
     ENV.cxx11
     args = std_cmake_args
     args.delete "-DCMAKE_BUILD_TYPE=None"
