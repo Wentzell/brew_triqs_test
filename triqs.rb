@@ -20,11 +20,12 @@ class Triqs < Formula
   depends_on "pkg-config" => :run
   depends_on :python if MacOS.version <= :snow_leopard
 
-  depends_on "mako" => :python
+  system "pip install mako"
+  system "pip install --no-binary=h5py h5py"
+  system "pip install --no-binary=h5py mpi4py"
+
   depends_on "numpy" => :python
   depends_on "scipy" => :python
-  depends_on "h5py" => :python
-  depends_on "mpi4py" => :python
 
   def install
     ENV.cxx11
