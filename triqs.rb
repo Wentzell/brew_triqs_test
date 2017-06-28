@@ -40,7 +40,7 @@ class Triqs < Formula
     mkdir "tmp" do
       args << ".."
       system "cmake", *args
-      system "make"
+      system "make -j 1"
       system "make", "test" if build.with? "test"
       system "make", "install"
     end
