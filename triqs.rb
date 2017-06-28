@@ -18,16 +18,18 @@ class Triqs < Formula
   depends_on "fftw"
   depends_on "gmp"
   depends_on "pkg-config" => :run
-  depends_on :python if MacOS.version <= :snow_leopard
 
-  system "pip install mako"
-  system "pip install --no-binary=h5py h5py"
-  system "pip install --no-binary=h5py mpi4py"
+  depends_on :python if MacOS.version <= :snow_leopard
 
   depends_on "numpy" => :python
   depends_on "scipy" => :python
 
   def install
+
+    system "pip", "install",  "mako"
+    system "pip", "install", "--no-binary=h5py", "h5py"
+    system "pip", "install", "--no-binary=mpi4py", "mpi4py"
+
     ENV.cxx11
     args = std_cmake_args
     args.delete "-DCMAKE_BUILD_TYPE=None"
