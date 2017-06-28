@@ -41,7 +41,7 @@ class Triqs < Formula
       args << ".."
       #system "cmake", *args
       system "cmake .. -DCMAKE_BUILD_TYPE=Release"
-      system "make -j 2"
+      system "make -j 1"
       system "make", "test" if build.with? "test"
       system "make", "install"
     end
