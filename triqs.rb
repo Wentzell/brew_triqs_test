@@ -32,13 +32,12 @@ class Triqs < Formula
     system "pip", "install", "--no-binary=mpi4py", "mpi4py"
 
     ENV.cxx11
-    args = ".." 
-    args << "-DCMAKE_BUILD_TYPE=Release"
-    args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
-    args << ("-DBuild_Tests=" + ((build.with? "test") ? "ON" : "OFF"))
+    args = ".. " 
+    args << "-DCMAKE_BUILD_TYPE=Release "
+    args << "-DCMAKE_INSTALL_PREFIX=#{prefix} "
+    args << ("-DBuild_Tests=" + ((build.with? "test") ? "ON " : "OFF "))
 
     mkdir "build" do
-      args << ".."
       system "cmake", *args
       system "make -j 1"
       system "make", "test" if build.with? "test"
