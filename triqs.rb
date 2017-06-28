@@ -13,6 +13,7 @@ class Triqs < Formula
   depends_on :mpi => :cxx
 
   depends_on "boost"
+  depends_on "openmpi"
   depends_on "hdf5"
   depends_on "cmake" => :build
   depends_on "fftw"
