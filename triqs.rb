@@ -25,12 +25,12 @@ class Triqs < Formula
   depends_on "scipy" => :python
 
   def install
-
-    system "pip install mako"
-    system "pip install --force-reinstall --no-binary=h5py h5py"
-    system "pip install --force-reinstall --no-binary=mpi4py mpi4py"
-
     ENV.cxx11
+
+    system "pip", "install", "mako"
+    system "pip", "install", "--force-reinstall", "--no-binary=h5py", "h5py"
+    system "pip", "install", "--force-reinstall", "--no-binary=mpi4py", "mpi4py"
+
     args = std_cmake_args
     args.delete "-DCMAKE_BUILD_TYPE=None"
     args << "-DCMAKE_BUILD_TYPE=Release"
