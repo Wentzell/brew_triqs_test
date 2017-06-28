@@ -1,13 +1,19 @@
 class Triqs < Formula
   desc "Applications and Libraries for Physics Simulations"
-
   homepage "http://triqs.ipht.cnrs.fr/"
-  url "https://github.com/TRIQS/triqs/archive/1.4.tar.gz"
 
-  sha256 "98378d5fb934c02f710d96eb5a3ffa28cbee20bab73b574487f5db18c5457cc4"
   head "https://github.com/TRIQS/triqs.git"
 
-  option "with-test",   "Build and run shipped tests"
+  stable do
+    url "https://github.com/TRIQS/triqs/archive/1.4.tar.gz"
+    sha256 "98378d5fb934c02f710d96eb5a3ffa28cbee20bab73b574487f5db18c5457cc4"
+  end  
+
+  devel do
+    url "https://github.com/TRIQS/triqs.git", :branch => unstable
+  end  
+
+  option "with-test", "Build and run shipped tests"
 
   depends_on "cmake" => :build
   depends_on :mpi => :cxx
@@ -34,7 +40,7 @@ class Triqs < Formula
     args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
     args << ("-DBuild_Tests=" + ((build.with? "test") ? "ON" : "OFF"))
 
-    mkdir "tmp" do
+    mkdir "build" do
       args << ".."
       system "cmake", *args
       system "make -j 1"
