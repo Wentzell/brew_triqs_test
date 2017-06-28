@@ -12,4 +12,4 @@ script:
   - brew update
   - brew upgrade
   - brew tap homebrew/science
-  - brew install triqs.rb
+  - brew install triqs.rb --with-test

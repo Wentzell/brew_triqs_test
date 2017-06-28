@@ -31,6 +31,8 @@ class Triqs < Formula
     ENV.cxx11
     args = std_cmake_args
     args.delete "-DCMAKE_BUILD_TYPE=None"
+    args.delete "-DCMAKE_CXX_FLAGS_RELEASE=-DNDEBUG"
+    args.delete "-DCMAKE_C_FLAGS_RELEASE=-DNDEBUG"
     args << "-DCMAKE_BUILD_TYPE=Release"
 
     args << ("-DBuild_Tests=" + ((build.with? "test") ? "ON" : "OFF"))
