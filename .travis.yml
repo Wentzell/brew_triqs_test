@@ -8,4 +8,5 @@ before_install: true
 install: true
 
 script:
+  brew tap homebrew/science
   brew install triqs.rb
