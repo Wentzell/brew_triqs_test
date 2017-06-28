@@ -37,7 +37,7 @@ class Triqs < Formula
     args << "-DCMAKE_INSTALL_PREFIX=#{prefix} "
     args << ("-DBuild_Tests=" + ((build.with? "test") ? "ON " : "OFF "))
 
-    mkdir "build" do
+    mkdir "tmp" do
       system "cmake", *args
       system "make -j 1"
       system "make", "test" if build.with? "test"
