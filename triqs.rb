@@ -23,8 +23,8 @@ class Triqs < Formula
   depends_on "numpy" => :python
   depends_on "scipy" => :python
   system "pip", "install", "mako"
-  system "pip", "install", "--force-reinstall", "--no-binary=h5py", "h5py"
-  system "pip", "install", "--force-reinstall", "--no-binary=mpi4py", "mpi4py"
+  system "pip", "install", "--no-binary=h5py", "h5py"
+  system "pip", "install", "--no-binary=mpi4py", "mpi4py"
 
   def install
     ENV.cxx11
