@@ -34,11 +34,11 @@ class Triqs < Formula
     ENV.cxx11
 
     args = %W[
-      "..",
-      "-DCMAKE_BUILD_TYPE=Release", 
-      "-DCMAKE_INSTALL_PREFIX=#{prefix}",
-      ("-DBuild_Tests=" + ((build.with? "test") ? "ON " : "OFF ")),
+      ..
+      -DCMAKE_BUILD_TYPE=Release
+      -DCMAKE_INSTALL_PREFIX=#{prefix}"
     ]
+    args << ("-DBuild_Tests=" + ((build.with? "test") ? "ON " : "OFF "))
 
     mkdir "build" do
       system "cmake", *args
