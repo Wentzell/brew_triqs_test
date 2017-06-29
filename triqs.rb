@@ -36,7 +36,7 @@ class Triqs < Formula
     args = %W[
       ..
       -DCMAKE_BUILD_TYPE=Release
-      -DCMAKE_INSTALL_PREFIX=#{prefix}"
+      -DCMAKE_INSTALL_PREFIX=#{prefix}
     ]
     args << ("-DBuild_Tests=" + ((build.with? "test") ? "ON " : "OFF "))
 
