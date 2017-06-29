@@ -30,7 +30,7 @@ class Triqs < Formula
     system "pip", "install", "--upgrade", "--force-reinstall", "--no-binary=mpi4py", "mpi4py"
 
     ENV.cxx11
-
+    
     args = %W[
       ..
       -DCMAKE_BUILD_TYPE=Release
@@ -41,7 +41,7 @@ class Triqs < Formula
     mkdir "build" do
       rm("../test/triqs/statistics/autocorrelation_jackknife.cpp") if build.stable?
       system "cmake", *args
-      system "make", "-j", "1"
+      system "make", "VERBOSE=1", "-j", "2"
       system "make", "test" if build.with? "test"
       system "make", "install"
     end
