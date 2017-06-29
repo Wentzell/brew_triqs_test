@@ -2,10 +2,10 @@ class Triqs < Formula
   desc "Applications and Libraries for Physics Simulations"
   homepage "http://triqs.ipht.cnrs.fr/"
 
-  head "https://github.com/TRIQS/triqs.git"
+  head "https://github.com/Wentzell/triqs.git"
 
   stable do
-    url "https://github.com/TRIQS/triqs/archive/1.4.tar.gz"
+    url "https://github.com/Wentzell/triqs/archive/1.4.tar.gz"
     sha256 "98378d5fb934c02f710d96eb5a3ffa28cbee20bab73b574487f5db18c5457cc4"
   end
 
