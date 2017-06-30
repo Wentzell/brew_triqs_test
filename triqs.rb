@@ -7,11 +7,11 @@ class Triqs < Formula
   stable do
     url "https://github.com/TRIQS/triqs/archive/1.4.tar.gz"
     sha256 "98378d5fb934c02f710d96eb5a3ffa28cbee20bab73b574487f5db18c5457cc4"
-  end  
+  end
 
   devel do
     url "https://github.com/TRIQS/triqs.git", :branch => "unstable"
-  end  
+  end
 
   option "with-test", "Build and run shipped tests"
 
@@ -38,7 +38,7 @@ class Triqs < Formula
       -DCMAKE_BUILD_TYPE=Release
       -DCMAKE_INSTALL_PREFIX=#{prefix}
     ]
-    args << ("-DBuild_Tests=" + ((build.with? "test") ? "ON " : "OFF "))
+    args << ("-DBuild_Tests=" + (build.with?("test") ? "ON " : "OFF "))
 
     mkdir "build" do
       system "cmake", *args
