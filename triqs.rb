@@ -16,20 +16,20 @@ class Triqs < Formula
   option "with-test", "Build and run shipped tests"
 
   depends_on "cmake" => :build
-  depends_on :mpi => :cxx
+  depends_on :mpi
   depends_on "boost"
   depends_on "hdf5"
   depends_on "fftw"
   depends_on "gmp"
-  depends_on "pkg-config" => :run
   depends_on "python"
-  depends_on "numpy" => :python
-  depends_on "scipy" => :python
+  depends_on "pkg-config" => :run
 
   def install
     system "pip", "install", "mako"
-    system "pip", "install", "--no-binary=h5py", "h5py"
-    system "pip", "install", "--no-binary=mpi4py", "mpi4py"
+    system "pip", "install", "scipy"
+    system "pip", "install", "numpy"
+    system "pip", "install", "--upgrade", "--force-reinstall", "--no-binary=h5py", "h5py"
+    system "pip", "install", "--upgrade", "--force-reinstall", "--no-binary=mpi4py", "mpi4py"
 
     ENV.cxx11
 
