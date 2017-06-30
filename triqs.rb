@@ -16,7 +16,7 @@ class Triqs < Formula
   option "with-test", "Build and run shipped tests"
 
   depends_on "cmake" => :build
-  depends_on :mpi
+  depends_on :mpi => :cxx
   depends_on "boost"
   depends_on "hdf5"
   depends_on "fftw"
