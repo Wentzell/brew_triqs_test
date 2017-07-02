@@ -10,7 +10,7 @@ class Triqs < Formula
   end
 
   devel do
-    url "https://github.com/TRIQS/triqs.git", :branch => "unstable"
+    url "https://github.com/TRIQS/triqs.git", :using => :git, :branch => "unstable"
   end
 
   option "with-test", "Build and run shipped tests"
