@@ -25,9 +25,11 @@ class Triqs < Formula
   depends_on "pkg-config" => :run
 
   def install
-    system "pip", "install", "mako"
-    system "pip", "install", "scipy"
-    system "pip", "install", "numpy"
+    system "pip", "install", "--upgrade", "pip"
+    system "pip", "install", "--upgrade", "mako"
+    system "pip", "install", "--upgrade", "scipy"
+    system "pip", "install", "--upgrade", "numpy"
+    system "pip", "install", "--upgrade", "jupyter"
     system "pip", "install", "--upgrade", "--force-reinstall", "--no-binary=h5py", "h5py"
     system "pip", "install", "--upgrade", "--force-reinstall", "--no-binary=mpi4py", "mpi4py"
 
@@ -41,6 +43,7 @@ class Triqs < Formula
     args << ("-DBuild_Tests=" + (build.with?("test") ? "ON " : "OFF "))
 
     mkdir "build" do
+      system "rm", "test/triqs/statistics/autocorrelation_jackknife.cpp" if build.stable?
       system "cmake", *args
       system "make -j 1"
       system "make", "test" if build.with? "test"
