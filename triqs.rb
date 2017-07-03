@@ -9,10 +9,6 @@ class Triqs < Formula
     sha256 "98378d5fb934c02f710d96eb5a3ffa28cbee20bab73b574487f5db18c5457cc4"
   end
 
-  devel do
-    url "https://github.com/TRIQS/triqs.git", :using => :git, :branch => "unstable"
-  end
-
   option "with-test", "Build and run shipped tests"
 
   depends_on "cmake" => :build
