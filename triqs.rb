@@ -41,7 +41,7 @@ class Triqs < Formula
     mkdir "build" do
       rm("../test/triqs/statistics/autocorrelation_jackknife.cpp") if build.stable?
       system "cmake", *args
-      system "make", "VERBOSE=1", "-j", "2"
+      system "make", "VERBOSE=1", "-j", "8"
       system "make", "test" if build.with? "test"
       system "make", "install"
     end
