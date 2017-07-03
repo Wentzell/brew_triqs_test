@@ -2,7 +2,7 @@ class Triqs < Formula
   desc "Applications and Libraries for Physics Simulations"
   homepage "http://triqs.ipht.cnrs.fr/"
 
-  head "https://github.com/Wentzell/triqs.git" => "unstable"
+  head "https://github.com/Wentzell/triqs.git", :branch => "unstable"
 
   stable do
     url "https://github.com/Wentzell/triqs/archive/1.4.tar.gz"
