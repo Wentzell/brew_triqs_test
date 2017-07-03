@@ -39,9 +39,9 @@ class Triqs < Formula
     args << ("-DBuild_Tests=" + (build.with?("test") ? "ON " : "OFF "))
 
     mkdir "build" do
-      system "rm", "../test/triqs/statistics/autocorrelation_jackknife.cpp" if build.stable?
+      rm("../test/triqs/statistics/autocorrelation_jackknife.cpp") if build.stable?
       system "cmake", *args
-      system "make -j 1"
+      system "make", "-j", "1"
       system "make", "test" if build.with? "test"
       system "make", "install"
     end
