@@ -279,6 +279,6 @@ class Triqs < Formula
   end
 
   test do
-    system "python -c 'import pytriqs'"
+    system "pytriqs -c 'import pytriqs'"
   end
 end
